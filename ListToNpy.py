@@ -23,11 +23,12 @@ def convert_list_to_npy(list_file_path, npy_file_path):
     np.save(npy_file_path, feature_array)
     print(".npy file successfully saved!")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # list_file_path = r'D:\IQA\da_fen_zhangjm\quality\feature_list_n'  # 替换为你的 list 文件路径
-    list_file_path = r'D:\IQA\da_fen_zhangjm\TexDirNet\feature\feature_list'  # 替换为你的 list 文件路径
-    npy_file_path = r'D:\IQA\da_fen_zhangjm\quality\npy\npy'  # 替换为你想保存的 npy 文件路径
+    list_file_path = r"D:\IQA\da_fen_zhangjm\TexDirNet\feature\feature_list"  # 替换为你的 list 文件路径
+    npy_file_path = (
+        r"D:\IQA\da_fen_zhangjm\quality\npy\npy"  # 替换为你想保存的 npy 文件路径
+    )
 
     convert_list_to_npy(list_file_path, npy_file_path)
-
-
