@@ -1,168 +1,168 @@
 ==================== For Positive Pairs ====================
 One People Number: 0
-Positive Pair Number: 492768
-Maximum similarity value: 0.9992057681083679
-Mean similarity value: 0.11368880420923233
-Minute similarity value: -0.30281582474708557
-Std of similarity value: 0.10769632458686829
+Positive Pair Number: 124488
+Maximum similarity value: 0.9983501602001216
+Mean similarity value: 0.7126362803925362
+Minute similarity value: -0.2001406989026272
+Std of similarity value: 0.24289696743940267
 ==================== For Negative Pairs ====================
 One People Number: 0
-Negative Pair Number: 492768
-Maximum similarity value: 0.9989193081855774
-Mean similarity value: 0.11387419700622559
-Minute similarity value: -0.30485662817955017
-Std of similarity value: 0.10836152732372284
+Negative Pair Number: 124488
+Maximum similarity value: 0.991451412505929
+Mean similarity value: 0.5920141121734014
+Minute similarity value: -0.22003624060001553
+Std of similarity value: 0.20982395979011956
 ==================== For Positive Pairs ====================
 One People Number: 0
-Positive Pair Number: 492768
-Maximum similarity value: 0.9921532273292542
-Mean similarity value: 0.1137261614203453
-Minute similarity value: -0.3130757510662079
-Std of similarity value: 0.1079566702246666
+Positive Pair Number: 124488
+Maximum similarity value: 0.9978881735236279
+Mean similarity value: 0.7130353549605939
+Minute similarity value: -0.2074232154592314
+Std of similarity value: 0.24241136930774673
 ==================== For Negative Pairs ====================
 One People Number: 0
-Negative Pair Number: 492768
-Maximum similarity value: 1.0000001192092896
-Mean similarity value: 0.11389882117509842
-Minute similarity value: -0.3122389316558838
-Std of similarity value: 0.10827648639678955
+Negative Pair Number: 124488
+Maximum similarity value: 0.9863229466470766
+Mean similarity value: 0.5920689941572488
+Minute similarity value: -0.22838422891347726
+Std of similarity value: 0.20982816646378094
 ==================== For Positive Pairs ====================
 One People Number: 0
-Positive Pair Number: 492768
-Maximum similarity value: 1.0
-Mean similarity value: 0.11367880553007126
-Minute similarity value: -0.30991044640541077
-Std of similarity value: 0.10824144631624222
+Positive Pair Number: 124488
+Maximum similarity value: 0.9978881735236279
+Mean similarity value: 0.7124536962831849
+Minute similarity value: -0.20158983848633785
+Std of similarity value: 0.2430839734705413
 ==================== For Negative Pairs ====================
 One People Number: 0
-Negative Pair Number: 492768
-Maximum similarity value: 0.9983434081077576
-Mean similarity value: 0.11401514708995819
-Minute similarity value: -0.2940223813056946
-Std of similarity value: 0.10844802856445312
+Negative Pair Number: 124488
+Maximum similarity value: 0.9809081359299684
+Mean similarity value: 0.5925676656803449
+Minute similarity value: -0.2300288211522597
+Std of similarity value: 0.20902532454676673
 ==================== For Positive Pairs ====================
 One People Number: 0
-Positive Pair Number: 492768
-Maximum similarity value: 0.9970343112945557
-Mean similarity value: 0.11373718827962875
-Minute similarity value: -0.32929056882858276
-Std of similarity value: 0.10814264416694641
+Positive Pair Number: 124488
+Maximum similarity value: 0.9983501602001216
+Mean similarity value: 0.7125923220729532
+Minute similarity value: -0.2001406989026272
+Std of similarity value: 0.24282277604066466
 ==================== For Negative Pairs ====================
 One People Number: 0
-Negative Pair Number: 492768
-Maximum similarity value: 1.0000001192092896
-Mean similarity value: 0.11374854296445847
-Minute similarity value: -0.333487331867218
-Std of similarity value: 0.10840140283107758
+Negative Pair Number: 124488
+Maximum similarity value: 0.991451412505929
+Mean similarity value: 0.5915584895735068
+Minute similarity value: -0.206624220048042
+Std of similarity value: 0.2097796792836245
 ==================== For Positive Pairs ====================
 One People Number: 0
-Positive Pair Number: 492768
-Maximum similarity value: 0.9920750856399536
-Mean similarity value: 0.11395938694477081
-Minute similarity value: -0.3256748914718628
-Std of similarity value: 0.10826225578784943
+Positive Pair Number: 124488
+Maximum similarity value: 0.9983501602001216
+Mean similarity value: 0.7124028667627239
+Minute similarity value: -0.20097682147295262
+Std of similarity value: 0.24295492533664093
 ==================== For Negative Pairs ====================
 One People Number: 0
-Negative Pair Number: 492768
-Maximum similarity value: 0.990886926651001
-Mean similarity value: 0.1135120540857315
-Minute similarity value: -0.3271481394767761
-Std of similarity value: 0.10822019726037979
+Negative Pair Number: 124488
+Maximum similarity value: 0.9838298225105843
+Mean similarity value: 0.5915405006582127
+Minute similarity value: -0.2114611525160441
+Std of similarity value: 0.20943897414899007
 ==================== For Positive Pairs ====================
 One People Number: 0
-Positive Pair Number: 492768
-Maximum similarity value: 0.9933762550354004
-Mean similarity value: 0.1137828677892685
-Minute similarity value: -0.3372645974159241
-Std of similarity value: 0.10804756730794907
+Positive Pair Number: 124488
+Maximum similarity value: 0.998376074039145
+Mean similarity value: 0.7133820916966289
+Minute similarity value: -0.20158983848633785
+Std of similarity value: 0.24279221992555025
 ==================== For Negative Pairs ====================
 One People Number: 0
-Negative Pair Number: 492768
-Maximum similarity value: 0.9980627298355103
-Mean similarity value: 0.11387026309967041
-Minute similarity value: -0.3181763291358948
-Std of similarity value: 0.10828735679388046
+Negative Pair Number: 124488
+Maximum similarity value: 0.9827564170305371
+Mean similarity value: 0.5921891738442329
+Minute similarity value: -0.22887496261942675
+Std of similarity value: 0.20981428001460592
 ==================== For Positive Pairs ====================
 One People Number: 0
-Positive Pair Number: 492768
-Maximum similarity value: 0.9986339807510376
-Mean similarity value: 0.11412375420331955
-Minute similarity value: -0.31995782256126404
-Std of similarity value: 0.10820084810256958
+Positive Pair Number: 124488
+Maximum similarity value: 0.9979607106617705
+Mean similarity value: 0.7122780462587727
+Minute similarity value: -0.2074232154592314
+Std of similarity value: 0.24319624859080471
 ==================== For Negative Pairs ====================
 One People Number: 0
-Negative Pair Number: 492768
-Maximum similarity value: 1.0000001192092896
-Mean similarity value: 0.11405273526906967
-Minute similarity value: -0.31456300616264343
-Std of similarity value: 0.10819912701845169
+Negative Pair Number: 124488
+Maximum similarity value: 0.9864256454013013
+Mean similarity value: 0.5921913193254948
+Minute similarity value: -0.21314081262943285
+Std of similarity value: 0.20961364149142556
 ==================== For Positive Pairs ====================
 One People Number: 0
-Positive Pair Number: 492768
-Maximum similarity value: 1.0000001192092896
-Mean similarity value: 0.11379577219486237
-Minute similarity value: -0.3090326488018036
-Std of similarity value: 0.10826539248228073
+Positive Pair Number: 124488
+Maximum similarity value: 0.9983501602001216
+Mean similarity value: 0.7132418426599977
+Minute similarity value: -0.19900338357250927
+Std of similarity value: 0.2423348194628499
 ==================== For Negative Pairs ====================
 One People Number: 0
-Negative Pair Number: 492768
-Maximum similarity value: 1.0000001192092896
-Mean similarity value: 0.11412714421749115
-Minute similarity value: -0.333487331867218
-Std of similarity value: 0.10838078707456589
+Negative Pair Number: 124488
+Maximum similarity value: 0.9809153203017609
+Mean similarity value: 0.5922992247883785
+Minute similarity value: -0.21544288732226
+Std of similarity value: 0.2095368831033525
 ==================== For Positive Pairs ====================
 One People Number: 0
-Positive Pair Number: 492768
-Maximum similarity value: 0.9986528754234314
-Mean similarity value: 0.1139458417892456
-Minute similarity value: -0.3173690140247345
-Std of similarity value: 0.10852038860321045
+Positive Pair Number: 124488
+Maximum similarity value: 0.998376074039145
+Mean similarity value: 0.7123700450391893
+Minute similarity value: -0.2001406989026272
+Std of similarity value: 0.2427961654416971
 ==================== For Negative Pairs ====================
 One People Number: 0
-Negative Pair Number: 492768
-Maximum similarity value: 1.0000001192092896
-Mean similarity value: 0.1138024628162384
-Minute similarity value: -0.3111816346645355
-Std of similarity value: 0.1080840602517128
+Negative Pair Number: 124488
+Maximum similarity value: 0.9852650031395417
+Mean similarity value: 0.5920691537434862
+Minute similarity value: -0.22569291843799466
+Std of similarity value: 0.20935743640948548
 ==================== For Positive Pairs ====================
 One People Number: 0
-Positive Pair Number: 492768
-Maximum similarity value: 0.9910164475440979
-Mean similarity value: 0.11400426179170609
-Minute similarity value: -0.30268096923828125
-Std of similarity value: 0.10827215760946274
+Positive Pair Number: 124488
+Maximum similarity value: 0.9983501602001216
+Mean similarity value: 0.712065050357777
+Minute similarity value: -0.2001406989026272
+Std of similarity value: 0.2433339051034399
 ==================== For Negative Pairs ====================
 One People Number: 0
-Negative Pair Number: 492768
-Maximum similarity value: 0.9909142255783081
-Mean similarity value: 0.11398184299468994
-Minute similarity value: -0.3011886477470398
-Std of similarity value: 0.10847717523574829
+Negative Pair Number: 124488
+Maximum similarity value: 0.9850326498918245
+Mean similarity value: 0.5921629776521167
+Minute similarity value: -0.20410244449083992
+Std of similarity value: 0.20958150507608939
 ==================== For Positive Pairs ====================
 One People Number: 0
-Positive Pair Number: 492768
-Maximum similarity value: 0.9891069531440735
-Mean similarity value: 0.1137271523475647
-Minute similarity value: -0.3054300546646118
-Std of similarity value: 0.10817278921604156
+Positive Pair Number: 124488
+Maximum similarity value: 0.9981209348636405
+Mean similarity value: 0.7129225917822636
+Minute similarity value: -0.18468120537599272
+Std of similarity value: 0.24277646900190095
 ==================== For Negative Pairs ====================
 One People Number: 0
-Negative Pair Number: 492768
-Maximum similarity value: 0.9973443150520325
-Mean similarity value: 0.1137814074754715
-Minute similarity value: -0.3082387149333954
-Std of similarity value: 0.10818745940923691
+Negative Pair Number: 124488
+Maximum similarity value: 0.98486686870535
+Mean similarity value: 0.5923513579269485
+Minute similarity value: -0.21827510565070743
+Std of similarity value: 0.2096158029931097
 ==================== For Positive Pairs ====================
 One People Number: 0
-Positive Pair Number: 492768
-Maximum similarity value: 1.0000001192092896
-Mean similarity value: 0.11378374695777893
-Minute similarity value: -0.2919011116027832
-Std of similarity value: 0.10819309949874878
+Positive Pair Number: 124488
+Maximum similarity value: 0.998376074039145
+Mean similarity value: 0.7124414043352336
+Minute similarity value: -0.20158983848633785
+Std of similarity value: 0.24347269125952034
 ==================== For Negative Pairs ====================
 One People Number: 0
-Negative Pair Number: 492768
-Maximum similarity value: 1.0
-Mean similarity value: 0.11386492848396301
-Minute similarity value: -0.31109845638275146
-Std of similarity value: 0.10843699425458908
+Negative Pair Number: 124488
+Maximum similarity value: 0.9852041597547253
+Mean similarity value: 0.5919163529745205
+Minute similarity value: -0.22565987191504538
+Std of similarity value: 0.20960692886612006

@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from dataset.dataset_txt import load_data as load_data_txt
 from config_test import config as conf
-from .model import model_mobilefaceNet, model
+from model import model_mobilefaceNet, model
 
 
 def dataSet():  # Dataset setup

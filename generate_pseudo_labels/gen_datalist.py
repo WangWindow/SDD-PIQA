@@ -28,6 +28,6 @@ if __name__ == "__main__":  # obtain data list
     This method is to obtain data list from dataset
     and save to txt files
     """
-    outfile = "./DATA.label"
-    data_root = "D:\IQA\da_fen_zhangjm\\newPdata4_jm"
+    outfile = "/root/workplace/SDD-FIQA/generate_pseudo_labels/DATA.label"
+    data_root = "/root/workplace/SDD-FIQA/data/ROI_Data"
     print(gentxt(data_root, outfile))
