@@ -20,6 +20,7 @@ checkpoints/
 *.tax2010
 *.vcf
 *.xml
+*.pth
 
 ### Linux ###
 *~
