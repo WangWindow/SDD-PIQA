@@ -61,13 +61,13 @@ class TrainQualityTask:
     def trainSet(self, net):
         # Different regression loss including L1, L2, and Smooth L1
         if self.config.loss == "L1":
-            print(f"LOSS TYPE = L1")
+            print("LOSS TYPE = L1")
             criterion = nn.L1Loss()
         elif self.config.loss == "SmoothL1":
-            print(f"LOSS TYPE = Smooth L1")
+            print("LOSS TYPE = Smooth L1")
             criterion = nn.SmoothL1Loss()
         else:
-            print(f"LOSS TYPE = L2")
+            print("LOSS TYPE = L2")
             criterion = nn.MSELoss(reduction="mean")
         # Optimizer
         optimizer = optim.Adam(
@@ -84,7 +84,7 @@ class TrainQualityTask:
         )
         return criterion, optimizer, scheduler
 
-    def train(self, trainloader, net, epoch):
+    def train(self, trainloader, net, epoch, criterion, optimizer, scheduler):
         # Train quality regression model
         net.train()
         itersNum = 1
@@ -141,4 +141,11 @@ if __name__ == "__main__":
     net = train_task.backboneSet()
     trainloader = train_task.dataSet()
     criterion, optimizer, scheduler = train_task.trainSet(net)
-    net = train_task.train(trainloader, net, epoch=conf.epoch)
+    net = train_task.train(
+        trainloader,
+        net,
+        epoch=conf.epoch,
+        criterion=criterion,
+        optimizer=optimizer,
+        scheduler=scheduler,
+    )

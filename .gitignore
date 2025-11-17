@@ -6,6 +6,7 @@
 temp/
 data/
 dataset[s]/
+checkpoints/
 
 *.csv
 *.dat
