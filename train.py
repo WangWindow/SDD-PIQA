@@ -70,7 +70,7 @@ class TrainQualityTask:
             print("LOSS TYPE = L2")
             criterion = nn.MSELoss(reduction="mean")
         # Optimizer
-        optimizer = optim.Adam(
+        optimizer = optim.Adam(  # pyright: ignore[reportPrivateImportUsage]
             net.parameters(),
             lr=self.config.lr,
             betas=(0.9, 0.99),
