@@ -1,4 +1,5 @@
 # train recognition model (Optional)
+# 训练识别模型（可选）
 
 Train a recognition model to assist in generating pseudo labels for the task. Based on `R50`.
 

@@ -1,17 +1,84 @@
-# SDD-PIQA: Unsupervised Face Image Quality Assessment with Similarity Distribution Distance
+# SDD-PIQA: Unsupervised Palmprint Image Quality Assessment with Similarity Distribution Distance
+# SDD-PIQA: 基于相似度分布距离的无监督掌纹图像质量评估
 
-## Get a 
+This repository contains the implementation of SDD-PIQA, adapted for Palmprint Image Quality Assessment.
+本项目包含 SDD-PIQA 的实现代码，适用于掌纹图像质量评估。
 
-## Generation of Quality Pseudo-Labels
-1. Run './generate_pseudo_labels/gen_datalist.py' to obtain the data list.
-2. Run './generate_pseudo_labels/extract_embedding/extract_feats.py' to extract the embeddings of face image.
-3. Run './generate_pseudo_labels/gen_pseudo_labels.py' to calculate the quality pseudo-labels.
+## 🛠️ Prerequisites / 准备工作
+*   Python >= 3.10
+*   PyTorch >= 2.*
+*   Torchvision (match PyTorch version)
+*   Numpy, Scipy, Tqdm, PIL ...
 
+## 🚀 Usage / 使用方法
 
-## Training of Quality Regression Model
-1. Replace the data path with your local path on `train_confing.py`.
-2. Run local_train.sh.
+### 1. Get a Palmprint Recognition Model / 获取掌纹识别模型
+**(Optional / 可选)**
+If you already have a pre-trained recognition model, you can skip this step. Otherwise, you can train a simple ResNet50 model using the provided script.
+如果您已有预训练的识别模型，可跳过此步。否则，您可以使用提供的脚本训练一个简单的 ResNet50 模型。
 
-## Prediction of PIQA
-Run './eval.py' to predict face quality score.
-We provide the pre-trained model on the refined MS1M dataset with IR50: [googledrive](https://drive.google.com/file/d/1AM0iWVfSVWRjCriwZZ3FXiUGbcDzkF25/view?usp=sharing)
+```bash
+# Train the recognition model / 训练识别模型
+python utils/train_recognition/train_recognition.py
+```
+*   The model will be saved at: `checkpoints/recognition_model/palmprint_R50_backbone.pth`
+*   模型将保存于上述路径。
+
+### 2. Generation of Quality Pseudo-Labels / 生成质量伪标签
+
+#### Step 1: Generate Data List / 生成数据列表
+Generate the image list and label files from your dataset.
+从您的数据集生成图像列表和标签文件。
+```bash
+python generate_pseudo_labels/gen_datalist.py
+```
+*   **Input**: `data/ROI_Data` (Configure in script / 在脚本中配置)
+*   **Output**: `generate_pseudo_labels/features/DATA.label`, `generate_pseudo_labels/features/DATA.labelpath`
+
+#### Step 2: Extract Embeddings / 提取特征
+Extract palmprint features using the recognition model.
+使用识别模型提取掌纹特征。
+```bash
+# Ensure configuration is correct in the script
+# 确保脚本中的配置正确
+python generate_pseudo_labels/extract_feats.py
+```
+*   **Output**: `generate_pseudo_labels/features/features.npy`
+
+#### Step 3: Calculate Pseudo-Labels / 计算伪标签
+Calculate quality scores based on the distribution distance of intra-class and inter-class similarities.
+基于类内和类间相似度的分布距离计算质量分数。
+```bash
+python generate_pseudo_labels/gen_pseudo_labels.py
+```
+*   **Output**: `generate_pseudo_labels/annotations/quality_pseudo_labels.txt`
+
+### 3. Training of Quality Regression Model / 训练质量回归模型
+
+1.  **Configure / 配置**: Modify `train.py` to set your data paths (e.g., `img_list`, `data_root`).
+    修改 `train.py` 设置数据路径。
+2.  **Train / 训练**:
+
+```bash
+# Run directly / 直接运行
+python train.py
+
+# Or run in background / 后台运行
+sh train.sh
+```
+*   **Checkpoints**: Saved in `checkpoints/quality_model`
+
+### 4. Prediction / 预测
+Use the trained model to predict quality scores for new images.
+使用训练好的模型预测新图像的质量分数。
+
+```bash
+python eval.py
+```
+
+## 📂 Project Structure / 项目结构
+*   `data/`: Dataset folder / 数据集目录
+*   `generate_pseudo_labels/`: Scripts for pseudo-label generation / 伪标签生成脚本
+*   `train.py`: Main training script / 主训练脚本
+*   `eval.py`: Evaluation script / 评估脚本
+*   `checkpoints/`: Saved models / 保存的模型

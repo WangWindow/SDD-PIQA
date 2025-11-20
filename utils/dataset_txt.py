@@ -1,8 +1,9 @@
-from torch.utils.data import DataLoader
-from torch.utils import data
+import os
+
 from PIL import Image
 import numpy as np
-import os
+from torch.utils import data
+from torch.utils.data import DataLoader
 
 
 class Dataset(data.Dataset):

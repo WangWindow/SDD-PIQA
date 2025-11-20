@@ -1,16 +1,56 @@
 import os
+
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import torchvision.transforms as T
 from tqdm import tqdm
-import numpy as np
 
-# from generate_pseudo_labels.extract_embedding.model import model_mobilefaceNet
-from generate_pseudo_labels.extract_embedding.model import model
-from generate_pseudo_labels.extract_embedding.dataset.dataset_txt import (
-    load_data as load_data_txt,
-)
-from train_config import config as conf
+from utils import model
+from utils.dataset_txt import load_data as load_data_txt
+
+
+class Config:
+    # dataset
+    img_list = "/root/workspace/SDD-PIQA/generate_pseudo_labels/annotations/quality_pseudo_labels.txt"
+    data_root = "/root/workspace/SDD-PIQA/data/ROI_Data"  # 新增 data_root 属性
+    # 使用掌纹识别阶段训练得到的 R50 backbone 作为初始化(可设为 None 从头训练)
+    finetuning_model = "/root/workspace/SDD-PIQA/checkpoints/recognition_model/palmprint_R50_backbone.pth"
+    # save settings
+    checkpoints = "/root/workspace/SDD-PIQA/checkpoints/quality_model"
+    checkpoints_name = "SDD-PIQA_quality_model"
+    # data preprocess
+    transform = T.Compose(
+        [
+            T.Resize((112, 112)),
+            # 掌纹左右手不对称，去除水平翻转以免引入跨手噪声
+            T.Grayscale(num_output_channels=3),  # 转为 3 通道以兼容预训练卷积
+            T.ToTensor(),
+            T.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]),
+        ]
+    )
+    # training settings
+    device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    seed = 0
+    # multi_GPUs = [0,1,2,3,4,5,6,7]
+    multi_GPUs = [0]
+    backbone = "IR_50"  # 使用与识别一致的 IR50 结构
+    pin_memory = True
+    # num_workers = 12
+    num_workers = 8
+    # 依据显存调整 batch_size，1 过低影响 BN；64 是较常见起点
+    batch_size = 64
+    epoch = 30
+    lr = 1e-4
+    stepLR = [5, 10]
+    weight_decay = 0.0005
+    display = 100
+    saveModel_epoch = 1
+    loss = "SmoothL1"  # ['L1', 'L2', 'SmoothL1']
+
+
+conf = Config()
 
 
 class TrainQualityTask:
@@ -29,18 +69,15 @@ class TrainQualityTask:
         # Network Setup
         device = self.config.device
         multi_GPUs = self.config.multi_GPUs
-        # if conf.backbone == "MFN":  # MobileFaceNet
-        #     net = model_mobilefaceNet.MobileFaceNet(
-        #         [112, 112], 512, output_name="GDC", use_type="Qua"
-        #     ).to(device)
-        # else:  # ResNet50
         net = model.IR50([112, 112], use_type="Qua").to(device)
         # Transfer learning from recognition model
         if self.config.finetuning_model is not None:
             print("=" * 20 + "FINE-TUNING" + "=" * 20)
             net_dict = net.state_dict()
             print("=" * 20 + "LOADING NETWROK PARAMETERS" + "=" * 20)
-            pretrained_dict = torch.load(conf.finetuning_model, map_location=device)
+            pretrained_dict = torch.load(
+                conf.finetuning_model, map_location=device, weights_only=True
+            )
             pretrained_dict = {
                 k.replace("module.", ""): v for k, v in pretrained_dict.items()
             }

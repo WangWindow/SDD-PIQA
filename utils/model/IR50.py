@@ -1,20 +1,17 @@
+from collections import namedtuple
+
 import torch
 import torch.nn as nn
 from torch.nn import (
-    Linear,
-    Conv2d,
-    BatchNorm1d,
     BatchNorm2d,
-    PReLU,
-    ReLU,
-    Sigmoid,
+    Conv2d,
     Dropout,
+    Linear,
     MaxPool2d,
-    AdaptiveAvgPool2d,
-    Sequential,
     Module,
+    PReLU,
+    Sequential,
 )
-from collections import namedtuple
 
 
 class Flatten(Module):
@@ -167,7 +164,7 @@ class Backbone(Module):
                 m.bias.data.zero_()
 
 
-def R50(input_size, use_type="Rec"):
+def IR50(input_size, use_type="Rec"):
     """
     This method is to create ResNet50 backbone
     if use for quality network, select self.use_type == "Qua"

@@ -1,13 +1,47 @@
+from pathlib import Path
+import sys
+
 import numpy as np
-from tqdm import tqdm
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torchvision.transforms as T
+from tqdm import tqdm
 
-# from model import model_mobilefaceNet
-from model import model
-from dataset.dataset_txt import load_data as load_data_txt
-from extract_feats_config import config as conf
+# Add the project root to sys.path
+project_root = Path(__file__).resolve().parents[1]
+sys.path.append(str(project_root))
+
+from utils import model  # noqa: E402
+from utils.dataset_txt import load_data as load_data_txt  # noqa: E402
+
+
+class Config:
+    # dataset
+    data_root = "/root/workspace/SDD-PIQA/data/ROI_Data"
+    img_list = "/root/workspace/SDD-PIQA/generate_pseudo_labels/features/DATA.labelpath"
+    # 使用我们训练得到的掌纹识别 backbone 权重
+    eval_model = "/root/workspace/SDD-PIQA/checkpoints/recognition_model/palmprint_R50_backbone.pth"
+    outfile = "/root/workspace/SDD-PIQA/generate_pseudo_labels/features/features.npy"
+    # data preprocess
+    transform = T.Compose(
+        [
+            T.Resize((112, 112)),
+            T.ToTensor(),
+            T.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]),
+        ]
+    )
+    # network settings
+    backbone = "R_50"  # [R_50]
+    device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    multi_GPUs = [0]
+    embedding_size = 512
+    batch_size = 512
+    pin_memory = True
+    num_workers = 2
+
+
+conf = Config()
 
 
 def dataSet():  # Dataset setup
@@ -24,14 +58,7 @@ def backboneSet():  # Network setup
     Backbone setup
     Load a Backbone for training, support MobileFaceNet(MFN) and ResNet50(R50)
     """
-    # # MobileFaceNet
-    # if conf.backbone == "MFN":
-    #     net = model_mobilefaceNet.MobileFaceNet(
-    #         [112, 112], conf.embedding_size, output_name="GDC", use_type="Rec"
-    #     ).to(device)
-    # # ResNet50
-    # else:
-    net = model.R50([112, 112], use_type="Rec").to(device)
+    net = model.IR50([112, 112], use_type="Rec").to(device)
     # load trained model weights
     if conf.eval_model is not None:
         net_dict = net.state_dict()

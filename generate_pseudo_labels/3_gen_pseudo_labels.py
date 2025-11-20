@@ -1,8 +1,9 @@
-import numpy as np
 import os
-from tqdm import tqdm
 import random
+
+import numpy as np
 from scipy.stats import wasserstein_distance
+from tqdm import tqdm
 
 
 def buildDict_people(datalistFile, featsFile):  # Building data dictionary
@@ -283,11 +284,9 @@ if __name__ == "__main__":
     and save it to txt files
     """
     data_root = os.path.join("/root/workspace/SDD-PIQA/data", "ROI_Data")
-    datalistFile = (
-        "/root/workspace/SDD-PIQA/generate_pseudo_labels/DATA.label"
-    )
+    datalistFile = "/root/workspace/SDD-PIQA/generate_pseudo_labels/features/DATA.label"
     featsFile = os.path.join(
-        "/root/workspace/SDD-PIQA/generate_pseudo_labels", "features.npy"
+        "/root/workspace/SDD-PIQA/generate_pseudo_labels", "features/features.npy"
     )
     create_dir = "/root/workspace/SDD-PIQA/generate_pseudo_labels/annotations"
     os.makedirs(create_dir, exist_ok=True)
