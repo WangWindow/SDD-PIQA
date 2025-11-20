@@ -13,14 +13,14 @@ class RecConfig:
     multi_GPUs = [0]
     seed = 0
     batch_size = 256
-    num_workers = 4
-    epoch = 20
+    num_workers = 8
+    epoch = 40
     lr = 1e-3
     weight_decay = 5e-4
     stepLR = [10, 15]
 
     # backbone
-    backbone = "R_50"  # [MFN, R_50]
+    backbone = "R_50"  # [R_50]
     embedding_size = 512
 
     # transforms
@@ -40,7 +40,7 @@ class RecConfig:
         "/root/workspace/SDD-PIQA/generate_pseudo_labels/extract_embedding/model"
     )
     out_backbone = out_dir / "palmprint_R50_backbone.pth"
-    out_classifier = out_dir / "palmprint_R50_full.pth"
+    out_classifier = out_dir / "palmprint_R50_classifier.pth"
 
 
 rec_conf = RecConfig()

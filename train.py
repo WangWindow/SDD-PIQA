@@ -3,12 +3,14 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from tqdm import tqdm
-from generate_pseudo_labels.extract_embedding.model import model_mobilefaceNet, model
+import numpy as np
+
+# from generate_pseudo_labels.extract_embedding.model import model_mobilefaceNet
+from generate_pseudo_labels.extract_embedding.model import model
 from generate_pseudo_labels.extract_embedding.dataset.dataset_txt import (
     load_data as load_data_txt,
 )
 from train_config import config as conf
-import numpy as np
 
 
 class TrainQualityTask:
@@ -27,12 +29,12 @@ class TrainQualityTask:
         # Network Setup
         device = self.config.device
         multi_GPUs = self.config.multi_GPUs
-        if conf.backbone == "MFN":  # MobileFaceNet
-            net = model_mobilefaceNet.MobileFaceNet(
-                [112, 112], 512, output_name="GDC", use_type="Qua"
-            ).to(device)
-        else:  # ResNet50
-            net = model.R50([112, 112], use_type="Qua").to(device)
+        # if conf.backbone == "MFN":  # MobileFaceNet
+        #     net = model_mobilefaceNet.MobileFaceNet(
+        #         [112, 112], 512, output_name="GDC", use_type="Qua"
+        #     ).to(device)
+        # else:  # ResNet50
+        net = model.IR50([112, 112], use_type="Qua").to(device)
         # Transfer learning from recognition model
         if self.config.finetuning_model is not None:
             print("=" * 20 + "FINE-TUNING" + "=" * 20)
@@ -118,14 +120,24 @@ class TrainQualityTask:
                 f"LR = {optimizer.param_groups[0]['lr']} | Mean_Loss = {mean_loss}"
                 + "\n"
             )
-            if (e + 1) % self.config.saveModel_epoch == 0:  # save model
-                os.makedirs(self.config.checkpoints, exist_ok=True)
-                savePath = os.path.join(
+
+            # Save only the latest and the best model
+            if e == 0:
+                best_loss = float("inf")
+            if mean_loss < best_loss:
+                best_loss = mean_loss
+                best_model_path = os.path.join(
                     self.config.checkpoints,
-                    f"{self.config.checkpoints_name}_net_{e + 1}epoch.pth",
+                    f"{self.config.checkpoints_name}_best.pth",
                 )
-                torch.save(net.state_dict(), savePath)
-                print(f"SAVE MODEL: {savePath}")
+                torch.save(net.state_dict(), best_model_path)
+                print(f"SAVE BEST MODEL: {best_model_path}")
+            latest_model_path = os.path.join(
+                self.config.checkpoints,
+                f"{self.config.checkpoints_name}_latest.pth",
+            )
+            torch.save(net.state_dict(), latest_model_path)
+            print(f"SAVE LATEST MODEL: {latest_model_path}")
             scheduler.step()
         return net
 

@@ -10,7 +10,7 @@ class Config:
     finetuning_model = "/root/workspace/SDD-PIQA/generate_pseudo_labels/extract_embedding/model/palmprint_R50_backbone.pth"
     # save settings
     checkpoints = "/root/workspace/SDD-PIQA/checkpoints/quality_model"
-    checkpoints_name = "R50"
+    checkpoints_name = "SDD-PIQA_quality_model"
     # data preprocess
     transform = T.Compose(
         [
@@ -29,7 +29,7 @@ class Config:
     backbone = "R_50"  # 使用与识别一致的 IR50 结构
     pin_memory = True
     # num_workers = 12
-    num_workers = 4
+    num_workers = 8
     # 依据显存调整 batch_size，1 过低影响 BN；64 是较常见起点
     batch_size = 64
     epoch = 20

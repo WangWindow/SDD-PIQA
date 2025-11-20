@@ -7,9 +7,9 @@ from torchvision.datasets import ImageFolder
 from tqdm import tqdm
 from train_recognition_config import rec_conf as conf
 from generate_pseudo_labels.extract_embedding.model import model as ir_model
-from generate_pseudo_labels.extract_embedding.model import (
-    model_mobilefaceNet as mfn_model,
-)
+# from generate_pseudo_labels.extract_embedding.model import (
+#     model_mobilefaceNet as mfn_model,
+# )
 
 
 def set_seed(seed: int):
@@ -36,12 +36,12 @@ class Classifier(nn.Module):
 
 
 def build_backbone(device: str):
-    if conf.backbone == "MFN":
-        backbone = mfn_model.MobileFaceNet(
-            [112, 112], conf.embedding_size, output_name="GDC", use_type="Rec"
-        ).to(device)
-    else:
-        backbone = ir_model.R50([112, 112], use_type="Rec").to(device)
+    # if conf.backbone == "MFN":
+    #     backbone = mfn_model.MobileFaceNet(
+    #         [112, 112], conf.embedding_size, output_name="GDC", use_type="Rec"
+    #     ).to(device)
+    # else:
+    backbone = ir_model.R50([112, 112], use_type="Rec").to(device)
     return backbone
 
 

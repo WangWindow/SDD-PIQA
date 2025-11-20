@@ -8,7 +8,7 @@ class Config:
     img_list = "/root/workspace/SDD-PIQA/generate_pseudo_labels/DATA.labelpath"
     # 使用我们训练得到的掌纹识别 backbone 权重
     eval_model = "/root/workspace/SDD-PIQA/generate_pseudo_labels/extract_embedding/model/palmprint_R50_backbone.pth"
-    outfile = "/root/workspace/SDD-PIQA/generate_pseudo_labels/npy/npy.npy"
+    outfile = "/root/workspace/SDD-PIQA/generate_pseudo_labels/features.npy"
     # data preprocess
     transform = T.Compose(
         [
@@ -18,7 +18,8 @@ class Config:
         ]
     )
     # network settings
-    backbone = "R_50"  # [MFN, R_50]
+    # backbone = "R_50"  # [MFN, R_50]
+    backbone = "R_50"  # [R_50]
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
     multi_GPUs = [0]
     embedding_size = 512

@@ -3,9 +3,11 @@ from tqdm import tqdm
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+
+# from model import model_mobilefaceNet
+from model import model
 from dataset.dataset_txt import load_data as load_data_txt
-from config_test import config as conf
-from model import model_mobilefaceNet, model
+from extract_feats_config import config as conf
 
 
 def dataSet():  # Dataset setup
@@ -22,14 +24,14 @@ def backboneSet():  # Network setup
     Backbone setup
     Load a Backbone for training, support MobileFaceNet(MFN) and ResNet50(R50)
     """
-    # MobileFaceNet
-    if conf.backbone == "MFN":
-        net = model_mobilefaceNet.MobileFaceNet(
-            [112, 112], conf.embedding_size, output_name="GDC", use_type="Rec"
-        ).to(device)
-    # ResNet50
-    else:
-        net = model.R50([112, 112], use_type="Rec").to(device)
+    # # MobileFaceNet
+    # if conf.backbone == "MFN":
+    #     net = model_mobilefaceNet.MobileFaceNet(
+    #         [112, 112], conf.embedding_size, output_name="GDC", use_type="Rec"
+    #     ).to(device)
+    # # ResNet50
+    # else:
+    net = model.R50([112, 112], use_type="Rec").to(device)
     # load trained model weights
     if conf.eval_model is not None:
         net_dict = net.state_dict()

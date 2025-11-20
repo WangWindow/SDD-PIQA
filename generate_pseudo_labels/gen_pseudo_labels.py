@@ -282,12 +282,12 @@ if __name__ == "__main__":
     This method is to generate quality pseudo scores by similarity distribution distance (SDD)
     and save it to txt files
     """
-    # data_root    = 'D:\IQA\da_fen_zhangjm\\newPdata4_jm'
     data_root = os.path.join("/root/workspace/SDD-PIQA/data", "ROI_Data")
-    datalistFile = "/root/workspace/SDD-PIQA/generate_pseudo_labels/DATA.label"
-    # featsFile    = 'D:\IQA\da_fen_zhangjm\quality\\npy\npy.npy'
+    datalistFile = (
+        "/root/workspace/SDD-PIQA/generate_pseudo_labels/DATA.label"
+    )
     featsFile = os.path.join(
-        "/root/workspace/SDD-PIQA/generate_pseudo_labels", "npy", "npy.npy"
+        "/root/workspace/SDD-PIQA/generate_pseudo_labels", "features.npy"
     )
     create_dir = "/root/workspace/SDD-PIQA/generate_pseudo_labels/annotations"
     os.makedirs(create_dir, exist_ok=True)
