@@ -1,11 +1,13 @@
 import os
+from pathlib import Path
 
 # 指定根目录
-root_dir = "/root/workspace/SDD-PIQA/data/ROI_Data"
+project_root = Path(__file__).resolve().parents[1]
+image_root_dir = str(project_root / "data/ROI_Data")
 
 # 遍历所有子文件夹
-for subdir in os.listdir(root_dir):
-    subfolder_path = os.path.join(root_dir, subdir)
+for subdir in os.listdir(image_root_dir):
+    subfolder_path = os.path.join(image_root_dir, subdir)
     if os.path.isdir(subfolder_path):
         # 获取子文件夹中的所有图片文件
         image_files = [

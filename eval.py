@@ -1,9 +1,12 @@
+from pathlib import Path
+
 from PIL import Image
 import torch
 import torchvision.transforms as T
-from pathlib import Path
 
 from utils import model
+
+project_root = Path(__file__).resolve().parent
 
 
 def read_img(imgPath):  # read image & data pre-process
@@ -36,9 +39,11 @@ def network(eval_model, device):
 
 
 if __name__ == "__main__":
-    img_dir = Path("/root/workspace/SDD-PIQA/assets/demo_imgs")
+    img_dir = project_root / "assets/demo_imgs"
     device = "cpu"  # 'cpu' or 'cuda:x'
-    eval_model = "/root/workspace/SDD-PIQA/checkpoints/quality_model/SDD-PIQA_quality_model_best.pth"  # checkpoint
+    eval_model = str(
+        project_root / "checkpoints/quality_model/SDD-PIQA_quality_model_best.pth"
+    )  # checkpoint
     net = network(eval_model, device)
 
     if img_dir.exists():

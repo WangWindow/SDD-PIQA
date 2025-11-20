@@ -24,11 +24,13 @@ This repository contains the implementation of SDD-PIQA, adapted for Palmprint I
 
 ## 🚀 Usage / 使用方法
 
-> 注意，为了避免路径格式不统一导致无法运行，本项目中所有路径使用绝对路径。
+> 本项目已配置为自动获取项目根目录，无需手动修改路径。
 
-> 代码中的项目路径为 `/root/workspace/SDD-PIQA`。
+> ~~注意，为了避免路径格式不统一导致无法运行，本项目中所有路径使用绝对路径。~~
 
-> 可以使用文件搜索工具（如 `VS Code` 的搜索功能），将项目文件中的 `/root/workspace/SDD-PIQA` 全部替换为 **`{自己的项目绝对路径}`**
+> ~~代码中的项目路径为 `/root/workspace/SDD-PIQA`。~~
+
+> ~~可以使用文件搜索工具（如 `VS Code` 的搜索功能），将项目文件中的 `/root/workspace/SDD-PIQA` 全部替换为 **`{自己的项目绝对路径}`**~~
 
 ### 1. Get a Palmprint Recognition Model / 获取掌纹识别模型
 **(Optional / 可选)**

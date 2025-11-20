@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 import numpy as np
 import torch
@@ -10,17 +11,19 @@ from tqdm import tqdm
 from utils import model
 from utils.dataset_txt import load_data as load_data_txt
 
+project_root = Path(__file__).resolve().parent
+
 
 class Config:
     # dataset
-    img_list = (
-        "/root/workspace/SDD-PIQA/checkpoints/pseudo_labels/quality_pseudo_labels.txt"
-    )
-    data_root = "/root/workspace/SDD-PIQA/data/ROI_Data"  # 新增 data_root 属性
+    img_list = str(project_root / "checkpoints/pseudo_labels/quality_pseudo_labels.txt")
+    data_root = str(project_root / "data/ROI_Data")  # 新增 data_root 属性
     # 使用掌纹识别阶段训练得到的 R50 backbone 作为初始化(可设为 None 从头训练)
-    finetuning_model = "/root/workspace/SDD-PIQA/checkpoints/recognition_model/palmprint_R50_backbone_best.pth"
+    finetuning_model = str(
+        project_root / "checkpoints/recognition_model/palmprint_R50_backbone_best.pth"
+    )
     # save settings
-    checkpoints = "/root/workspace/SDD-PIQA/checkpoints/quality_model"
+    checkpoints = str(project_root / "checkpoints/quality_model")
     checkpoints_name = "SDD-PIQA_quality_model"
     # data preprocess
     transform = T.Compose(

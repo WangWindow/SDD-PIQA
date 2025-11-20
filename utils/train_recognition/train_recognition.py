@@ -19,9 +19,7 @@ from utils import model  # noqa: E402
 
 class Config:
     # dataset
-    data_root = (
-        "/root/workspace/SDD-PIQA/data/ROI_Data"  # 目录结构: data_root/<id>/<img>
-    )
+    data_root = str(project_root / "data/ROI_Data")  # 目录结构: data_root/<id>/<img>
     # training
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
     multi_GPUs = [0]
@@ -50,7 +48,7 @@ class Config:
     )
 
     # checkpoint
-    checkpoints = Path("/root/workspace/SDD-PIQA/checkpoints/recognition_model")
+    checkpoints = project_root / "checkpoints/recognition_model"
     checkpoints_backbone_name = "palmprint_R50_backbone"
     checkpoints_classifier_name = "palmprint_R50_classifier"
     log_file = checkpoints / "log"

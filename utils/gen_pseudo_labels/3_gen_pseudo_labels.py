@@ -1,9 +1,12 @@
 import os
+from pathlib import Path
 import random
 
 import numpy as np
 from scipy.stats import wasserstein_distance
 from tqdm import tqdm
+
+project_root = Path(__file__).resolve().parents[2]
 
 
 def buildDict_people(datalistFile, featsFile):  # Building data dictionary
@@ -283,10 +286,10 @@ if __name__ == "__main__":
     This method is to generate quality pseudo scores by similarity distribution distance (SDD)
     and save it to txt files
     """
-    data_root = os.path.join("/root/workspace/SDD-PIQA/data", "ROI_Data")
-    datalistFile = "/root/workspace/SDD-PIQA/checkpoints/pseudo_labels/DATA.label"
-    featsFile = "/root/workspace/SDD-PIQA/checkpoints/pseudo_labels/features.npy"
-    create_dir = "/root/workspace/SDD-PIQA/checkpoints/pseudo_labels"
+    data_root = str(project_root / "data/ROI_Data")
+    datalistFile = str(project_root / "checkpoints/pseudo_labels/DATA.label")
+    featsFile = str(project_root / "checkpoints/pseudo_labels/features.npy")
+    create_dir = str(project_root / "checkpoints/pseudo_labels")
     os.makedirs(create_dir, exist_ok=True)
     outfile_dist_info = f"{create_dir}/distribution_info_tmp.txt"
     outfile_wdistacne = f"{create_dir}/w_distances.txt"
