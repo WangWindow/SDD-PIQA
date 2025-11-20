@@ -28,7 +28,7 @@ class Config:
     seed = 0
     batch_size = 64
     num_workers = 8
-    epoch = 30
+    epoch = 20
     lr = 1e-3
     weight_decay = 5e-4
     stepLR = [10, 15]
@@ -50,10 +50,10 @@ class Config:
     )
 
     # checkpoint
-    out_dir = Path("/root/workspace/SDD-PIQA/checkpoints/recognition_model")
-    out_backbone = out_dir / "palmprint_R50_backbone.pth"
-    out_classifier = out_dir / "palmprint_R50_classifier.pth"
-    log_file = out_dir / "log"
+    checkpoints = Path("/root/workspace/SDD-PIQA/checkpoints/recognition_model")
+    checkpoints_backbone_name = "palmprint_R50_backbone"
+    checkpoints_classifier_name = "palmprint_R50_classifier"
+    log_file = checkpoints / "log"
 
 
 conf = Config()
@@ -88,7 +88,7 @@ def build_backbone(device: str):
 
 
 def main():
-    os.makedirs(conf.out_dir, exist_ok=True)
+    os.makedirs(conf.checkpoints, exist_ok=True)
     set_seed(conf.seed)
     device = conf.device
 
@@ -122,6 +122,7 @@ def main():
     )
 
     model.train()
+    best_acc = 0.0
     # Open log file
     with open(conf.log_file, "w") as log_f:
         for epoch in range(conf.epoch):
@@ -151,6 +152,9 @@ def main():
                 )
             scheduler.step()
 
+            epoch_loss = running_loss / total
+            epoch_acc = correct / total
+
             # save checkpoint each epoch
             # 仅保存 backbone 的权重，方便后续 extract_feats 直接加载
             if isinstance(model, nn.DataParallel):
@@ -159,14 +163,35 @@ def main():
             else:
                 backbone_state = model.backbone.state_dict()
                 full_state = model.state_dict()
-            torch.save(backbone_state, conf.out_backbone)
-            torch.save(full_state, conf.out_classifier)
 
-            log_msg = f"Epoch {epoch + 1}: loss={running_loss / total:.4f}, acc={correct / total:.4f}"
+            # Save latest model
+            backbone_latest_path = (
+                conf.checkpoints / f"{conf.checkpoints_backbone_name}_latest.pth"
+            )
+            classifier_latest_path = (
+                conf.checkpoints / f"{conf.checkpoints_classifier_name}_latest.pth"
+            )
+            torch.save(backbone_state, backbone_latest_path)
+            torch.save(full_state, classifier_latest_path)
+
+            # Save best model
+            if epoch_acc > best_acc:
+                best_acc = epoch_acc
+                backbone_best_path = (
+                    conf.checkpoints / f"{conf.checkpoints_backbone_name}_best.pth"
+                )
+                classifier_best_path = (
+                    conf.checkpoints / f"{conf.checkpoints_classifier_name}_best.pth"
+                )
+                torch.save(backbone_state, backbone_best_path)
+                torch.save(full_state, classifier_best_path)
+                print(f"Saved best model with acc: {best_acc:.4f}")
+
+            log_msg = f"Epoch {epoch + 1}: loss={epoch_loss:.4f}, acc={epoch_acc:.4f}"
             print(log_msg)
             log_f.write(log_msg + "\n")
             log_f.flush()  # Ensure writing to disk
-            print(f"Saved backbone -> {conf.out_backbone}")
+            print(f"Saved backbone -> {backbone_latest_path}")
 
 
 if __name__ == "__main__":

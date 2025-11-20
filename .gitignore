@@ -8,6 +8,8 @@ data/
 dataset[s]/
 checkpoints/
 log[s]/
+feature[s]/
+annotation[s]/
 
 *.csv
 *.dat
