@@ -43,7 +43,7 @@ class Config:
     batch_size = 64
     epoch = 30
     lr = 1e-4
-    stepLR = [5, 10]
+    stepLR = [10, 20]
     weight_decay = 0.0005
     display = 100
     saveModel_epoch = 1

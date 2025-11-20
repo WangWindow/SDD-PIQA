@@ -11,4 +11,8 @@ log_dir="logs/train_rec/$timestamp"
 mkdir -p logs
 mkdir -p "$log_dir"
 
-nohup python -u utils/train_recognition/train_recognition.py > "$log_dir/log" 2>&1 &
+{
+    nohup python -u utils/train_recognition/train_recognition.py
+    echo "----------------------------------------"
+    echo "done"
+} > "$log_dir/log" 2>&1 &

@@ -11,6 +11,13 @@ log_dir="logs/gen_pseudo_labels/$timestamp"
 mkdir -p logs
 mkdir -p "$log_dir"
 
-for script in 1_gen_datalist 2_extract_feats 3_gen_pseudo_labels; do
-    nohup python -u gen_pseudo_labels/${script}.py > "$log_dir/${script}.log" 2>&1
-done
+{
+    for script in 1_gen_datalist 2_extract_feats 3_gen_pseudo_labels; do
+        echo "Running ${script}..."
+        python -u generate_pseudo_labels/${script}.py
+        echo "----------------------------------------"
+        echo "${script} done"
+        echo "----------------------------------------"
+    done
+    echo "All done"
+} > "$log_dir/log" 2>&1 &
