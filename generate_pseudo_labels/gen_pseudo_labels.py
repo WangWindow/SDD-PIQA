@@ -283,13 +283,13 @@ if __name__ == "__main__":
     and save it to txt files
     """
     # data_root    = 'D:\IQA\da_fen_zhangjm\\newPdata4_jm'
-    data_root = os.path.join("/root/workplace/SDD-FIQA/data", "ROI_Data")
-    datalistFile = "/root/workplace/SDD-FIQA/generate_pseudo_labels/DATA.label"
+    data_root = os.path.join("/root/workspace/SDD-PIQA/data", "ROI_Data")
+    datalistFile = "/root/workspace/SDD-PIQA/generate_pseudo_labels/DATA.label"
     # featsFile    = 'D:\IQA\da_fen_zhangjm\quality\\npy\npy.npy'
     featsFile = os.path.join(
-        "/root/workplace/SDD-FIQA/generate_pseudo_labels", "npy", "npy.npy"
+        "/root/workspace/SDD-PIQA/generate_pseudo_labels", "npy", "npy.npy"
     )
-    create_dir = "/root/workplace/SDD-FIQA/generate_pseudo_labels/annotations"
+    create_dir = "/root/workspace/SDD-PIQA/generate_pseudo_labels/annotations"
     os.makedirs(create_dir, exist_ok=True)
     outfile_dist_info = f"{create_dir}/distribution_info_tmp.txt"
     outfile_wdistacne = f"{create_dir}/w_distances.txt"

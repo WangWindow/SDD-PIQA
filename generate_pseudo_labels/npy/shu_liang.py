@@ -1,11 +1,11 @@
 import numpy as np
 
 # 原始 list 文件
-with open("/root/workplace/SDD-FIQA/generate_pseudo_labels/DATA.label", "r") as f:
+with open("/root/workspace/SDD-PIQA/generate_pseudo_labels/DATA.label", "r") as f:
     label_list = [line.strip().split()[0] for line in f]
 
 # 特征文件
-feats = np.load("/root/workplace/SDD-FIQA/generate_pseudo_labels/npy/npy.npy")
+feats = np.load("/root/workspace/SDD-PIQA/generate_pseudo_labels/npy/npy.npy")
 print("label 文件数:", len(label_list))
 print("特征数:", feats.shape[0])
 

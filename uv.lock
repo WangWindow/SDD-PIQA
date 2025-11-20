@@ -1449,7 +1449,7 @@ wheels = [
 ]
 
 [[package]]
-name = "sdd-fiqa"
+name = "SDD-PIQA"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

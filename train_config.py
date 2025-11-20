@@ -4,12 +4,12 @@ import torchvision.transforms as T
 
 class Config:
     # dataset
-    img_list = "/root/workplace/SDD-FIQA/generate_pseudo_labels/annotations/quality_pseudo_labels.txt"
-    data_root = "/root/workplace/SDD-FIQA/data/ROI_Data"  # 新增 data_root 属性
+    img_list = "/root/workspace/SDD-PIQA/generate_pseudo_labels/annotations/quality_pseudo_labels.txt"
+    data_root = "/root/workspace/SDD-PIQA/data/ROI_Data"  # 新增 data_root 属性
     # 使用掌纹识别阶段训练得到的 R50 backbone 作为初始化(可设为 None 从头训练)
-    finetuning_model = "/root/workplace/SDD-FIQA/generate_pseudo_labels/extract_embedding/model/palmprint_R50_backbone.pth"
+    finetuning_model = "/root/workspace/SDD-PIQA/generate_pseudo_labels/extract_embedding/model/palmprint_R50_backbone.pth"
     # save settings
-    checkpoints = "/root/workplace/SDD-FIQA/checkpoints/quality_model"
+    checkpoints = "/root/workspace/SDD-PIQA/checkpoints/quality_model"
     checkpoints_name = "R50"
     # data preprocess
     transform = T.Compose(

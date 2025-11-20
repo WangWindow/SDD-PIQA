@@ -1,9 +1,9 @@
-# SDD-FIQA: Unsupervised Face Image Quality Assessment with Similarity Distribution Distance
+# SDD-PIQA: Unsupervised Face Image Quality Assessment with Similarity Distribution Distance
 
 ## Introduction
 ####
-In recent years, Face Image Quality Assessment (FIQA) has become an indispensable part of the face recognition system to guarantee the stability and reliability of recognition performance in an unconstrained scenario. In this work, we argue that a high-quality face image should be similar to its intra-class samples and dissimilar to its inter-class samples. Thus, we propose a novel unsupervised FIQA method that incorporates Similarity Distribution Distance for Face Image Quality Assessment (SDD-FIQA). Our method generates quality pseudo-labels by calculating the Wasserstein Distance (WD) between the intra-class and inter-class similarity distributions. With these quality pseudo-labels, we are capable of training a regression network for quality prediction. Extensive experiments on benchmark datasets demonstrate that the proposed SDD-FIQA surpasses the state-of-the-arts by an impressive margin. Meanwhile, our method shows good generalization across different recognition systems.
-<img src="assets/framework.png" title="SDD-FIQA framework" width="500" />
+In recent years, Face Image Quality Assessment (FIQA) has become an indispensable part of the face recognition system to guarantee the stability and reliability of recognition performance in an unconstrained scenario. In this work, we argue that a high-quality face image should be similar to its intra-class samples and dissimilar to its inter-class samples. Thus, we propose a novel unsupervised FIQA method that incorporates Similarity Distribution Distance for Face Image Quality Assessment (SDD-PIQA). Our method generates quality pseudo-labels by calculating the Wasserstein Distance (WD) between the intra-class and inter-class similarity distributions. With these quality pseudo-labels, we are capable of training a regression network for quality prediction. Extensive experiments on benchmark datasets demonstrate that the proposed SDD-PIQA surpasses the state-of-the-arts by an impressive margin. Meanwhile, our method shows good generalization across different recognition systems.
+<img src="assets/framework.png" title="SDD-PIQA framework" width="500" />
 
 
 ## Generation of Quality Pseudo-Labels
@@ -26,9 +26,9 @@ We provide the pre-trained model on the refined MS1M dataset with IR50: [googled
 ## Citing this Repository
 If you find this code useful in your research, please consider citing us:
 ```
-@InProceedings{SDD-FIQA2021,
+@InProceedings{SDD-PIQA2021,
    author={Ou, Fu-Zhao and Chen, Xingyu and Zhang, Ruixin and Huang, Yuge and Li, Shaoxin and Li, Jilin and Li, Yong and Cao, Liujuan and Wang, Yuan-Gen},
-   title = {{SDD-FIQA}: Unsupervised Face Image Quality Assessment with Similarity Distribution Distance},
+   title = {{SDD-PIQA}: Unsupervised Face Image Quality Assessment with Similarity Distribution Distance},
    booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
    year = {2021},
 }

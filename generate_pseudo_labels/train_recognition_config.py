@@ -6,7 +6,7 @@ from pathlib import Path
 class RecConfig:
     # dataset
     data_root = (
-        "/root/workplace/SDD-FIQA/data/ROI_Data"  # 目录结构: data_root/<id>/<img>
+        "/root/workspace/SDD-PIQA/data/ROI_Data"  # 目录结构: data_root/<id>/<img>
     )
     # training
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
@@ -37,7 +37,7 @@ class RecConfig:
 
     # checkpoint
     out_dir = Path(
-        "/root/workplace/SDD-FIQA/generate_pseudo_labels/extract_embedding/model"
+        "/root/workspace/SDD-PIQA/generate_pseudo_labels/extract_embedding/model"
     )
     out_backbone = out_dir / "palmprint_R50_backbone.pth"
     out_classifier = out_dir / "palmprint_R50_full.pth"

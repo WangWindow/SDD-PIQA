@@ -34,7 +34,7 @@ def network(eval_model, device):
 if __name__ == "__main__":
     imgpath = "./assets/demo_imgs/20.jpg"  # [1,2,3....jpg]
     device = "cpu"  # 'cpu' or 'cuda:x'
-    eval_model = "/root/workplace/SDD-FIQA/checkpoints/quality_model/R50_net_20epoch.pth"  # checkpoint
+    eval_model = "/root/workspace/SDD-PIQA/checkpoints/quality_model/R50_net_20epoch.pth"  # checkpoint
     net = network(eval_model, device)
     input_data = read_img(imgpath)
     pred_score = net(input_data).data.cpu().numpy().squeeze()

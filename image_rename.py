@@ -1,7 +1,7 @@
 import os
 
 # 指定根目录
-root_dir = "/root/workplace/SDD-FIQA/data/ROI_Data"
+root_dir = "/root/workspace/SDD-PIQA/data/ROI_Data"
 
 # 遍历所有子文件夹
 for subdir in os.listdir(root_dir):

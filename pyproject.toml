@@ -1,9 +1,9 @@
 [project]
-name = "sdd-fiqa"
+name = "SDD-PIQA"
 version = "0.1.0"
-description = "SDD-FIQA project"
+description = "SDD-PIQA project"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
     "colorama==0.4.6",
     "filelock==3.16.1",
