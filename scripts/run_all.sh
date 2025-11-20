@@ -17,7 +17,7 @@ echo "Starting pipeline. Logs are being written to $log_dir/log"
     echo "========================================================"
     echo "Step 1: Train Recognition Model (train_rec.sh)"
     echo "========================================================"
-    python -u utils/train_recognition/train_recognition.py
+    python -u utils/train_recognition/train_recognition.py 2>&1 | grep --line-buffered -v "%|" # 输出并过滤进度条，避免文件太长
     echo "Step 1 Done."
 
     echo "========================================================"
@@ -25,7 +25,7 @@ echo "Starting pipeline. Logs are being written to $log_dir/log"
     echo "========================================================"
     for script in 1_gen_datalist 2_extract_feats 3_gen_pseudo_labels; do
         echo "Running ${script}..."
-        python -u utils/gen_pseudo_labels/${script}.py
+        python -u utils/gen_pseudo_labels/${script}.py 2>&1
         echo "----------------------------------------"
         echo "${script} done"
         echo "----------------------------------------"
@@ -35,7 +35,7 @@ echo "Starting pipeline. Logs are being written to $log_dir/log"
     echo "========================================================"
     echo "Step 3: Train Quality Model (train.sh)"
     echo "========================================================"
-    python -u train.py
+    python -u train.py 2>&1 | grep --line-buffered -v "%|"
     echo "Step 3 Done."
 
     echo "========================================================"

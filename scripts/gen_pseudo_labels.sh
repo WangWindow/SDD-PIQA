@@ -14,7 +14,7 @@ mkdir -p "$log_dir"
 {
     for script in 1_gen_datalist 2_extract_feats 3_gen_pseudo_labels; do
         echo "Running ${script}..."
-        python -u utils/gen_pseudo_labels/${script}.py
+        python -u utils/gen_pseudo_labels/${script}.py 2>&1
         echo "----------------------------------------"
         echo "${script} done"
         echo "----------------------------------------"

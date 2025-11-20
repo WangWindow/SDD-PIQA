@@ -12,7 +12,7 @@ mkdir -p logs
 mkdir -p "$log_dir"
 
 {
-    nohup python -u train.py
+    nohup python -u train.py 2>&1 | grep --line-buffered -v "%|"
     echo "----------------------------------------"
     echo "done"
 } > "$log_dir/log" 2>&1 &

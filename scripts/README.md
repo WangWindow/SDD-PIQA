@@ -14,18 +14,23 @@ bash scripts/script_name.sh
 
 ## Contents / 内容
 
-*   **`all_run.sh`**:
-    *   **Full Pipeline**: Sequentially runs the entire pipeline: Recognition Training -> Pseudo Label Generation -> Quality Model Training.
-    *   **全流程**: 按顺序运行整个流程：识别训练 -> 伪标签生成 -> 质量模型训练。
+*   **`gen_pseudo_labels.sh`**:
+    *   **Pseudo Label Generation**: Runs the 3-step process to generate quality pseudo-labels.
+    *   **伪标签生成**: 运行 3 步流程以生成质量伪标签。
+
+*   **`kill_all.sh`**:
+    *   **Stop Processes**: Kills all running background processes related to this project (training, generation, etc.).
+    *   **停止进程**: 终止所有与本项目相关的后台运行进程（训练、生成等）。
+
+*   **`train.sh`**:
+    *   **Quality Model Training**: Trains the final quality regression model using the generated pseudo-labels.
+    *   **质量模型训练**: 使用生成的伪标签训练最终的质量回归模型。
 
 *   **`train_rec.sh`**:
     *   **Recognition Training**: Trains the ResNet50 backbone for palmprint recognition.
     *   **识别训练**: 训练用于掌纹识别的 ResNet50 主干网络。
 
-*   **`gen_pseudo_labels.sh`**:
-    *   **Pseudo Label Generation**: Runs the 3-step process to generate quality pseudo-labels.
-    *   **伪标签生成**: 运行 3 步流程以生成质量伪标签。
 
-*   **`train.sh`**:
-    *   **Quality Model Training**: Trains the final quality regression model using the generated pseudo-labels.
-    *   **质量模型训练**: 使用生成的伪标签训练最终的质量回归模型。
+*   **`run_all.sh`**:
+    *   **Full Pipeline**: Sequentially runs the entire pipeline: Recognition Training -> Pseudo Label Generation -> Quality Model Training.
+    *   **全流程**: 按顺序运行整个流程：识别训练 -> 伪标签生成 -> 质量模型训练。
