@@ -13,7 +13,9 @@ from utils.dataset_txt import load_data as load_data_txt
 
 class Config:
     # dataset
-    img_list = "/root/workspace/SDD-PIQA/gen_pseudo_labels/annotations/quality_pseudo_labels.txt"
+    img_list = (
+        "/root/workspace/SDD-PIQA/checkpoints/pseudo_labels/quality_pseudo_labels.txt"
+    )
     data_root = "/root/workspace/SDD-PIQA/data/ROI_Data"  # 新增 data_root 属性
     # 使用掌纹识别阶段训练得到的 R50 backbone 作为初始化(可设为 None 从头训练)
     finetuning_model = "/root/workspace/SDD-PIQA/checkpoints/recognition_model/palmprint_R50_backbone_best.pth"
@@ -35,7 +37,7 @@ class Config:
     seed = 0
     # multi_GPUs = [0,1,2,3,4,5,6,7]
     multi_GPUs = [0]
-    backbone = "IR_50"  # 使用与识别一致的 IR50 结构
+    backbone = "R_50"  # 使用与识别一致的 IR50 结构
     pin_memory = True
     # num_workers = 12
     num_workers = 8

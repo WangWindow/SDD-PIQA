@@ -284,11 +284,9 @@ if __name__ == "__main__":
     and save it to txt files
     """
     data_root = os.path.join("/root/workspace/SDD-PIQA/data", "ROI_Data")
-    datalistFile = "/root/workspace/SDD-PIQA/gen_pseudo_labels/features/DATA.label"
-    featsFile = os.path.join(
-        "/root/workspace/SDD-PIQA/gen_pseudo_labels", "features/features.npy"
-    )
-    create_dir = "/root/workspace/SDD-PIQA/gen_pseudo_labels/annotations"
+    datalistFile = "/root/workspace/SDD-PIQA/checkpoints/pseudo_labels/DATA.label"
+    featsFile = "/root/workspace/SDD-PIQA/checkpoints/pseudo_labels/features.npy"
+    create_dir = "/root/workspace/SDD-PIQA/checkpoints/pseudo_labels"
     os.makedirs(create_dir, exist_ok=True)
     outfile_dist_info = f"{create_dir}/distribution_info_tmp.txt"
     outfile_wdistacne = f"{create_dir}/w_distances.txt"

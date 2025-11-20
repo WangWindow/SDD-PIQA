@@ -9,7 +9,7 @@ import torchvision.transforms as T
 from tqdm import tqdm
 
 # Add the project root to sys.path
-project_root = Path(__file__).resolve().parents[1]
+project_root = Path(__file__).resolve().parents[2]
 sys.path.append(str(project_root))
 
 from utils import model  # noqa: E402
@@ -19,10 +19,10 @@ from utils.dataset_txt import load_data as load_data_txt  # noqa: E402
 class Config:
     # dataset
     data_root = "/root/workspace/SDD-PIQA/data/ROI_Data"
-    img_list = "/root/workspace/SDD-PIQA/gen_pseudo_labels/features/DATA.labelpath"
+    img_list = "/root/workspace/SDD-PIQA/checkpoints/pseudo_labels/DATA.labelpath"
     # 使用我们训练得到的掌纹识别 backbone 权重
     eval_model = "/root/workspace/SDD-PIQA/checkpoints/recognition_model/palmprint_R50_backbone_best.pth"
-    outfile = "/root/workspace/SDD-PIQA/gen_pseudo_labels/features/features.npy"
+    outfile = "/root/workspace/SDD-PIQA/checkpoints/pseudo_labels/features.npy"
     # data preprocess
     transform = T.Compose(
         [
