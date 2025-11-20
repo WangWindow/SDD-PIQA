@@ -1,6 +1,7 @@
 from PIL import Image
 import torch
 import torchvision.transforms as T
+from pathlib import Path
 
 from utils import model
 
@@ -15,7 +16,7 @@ def read_img(imgPath):  # read image & data pre-process
         ]
     )
     img = Image.open(imgPath).convert("RGB")
-    data[0, :, :, :] = transform(img)  # pyright: ignore[reportArgumentType]
+    data[0, :, :, :] = transform(img)
     return data
 
 
@@ -35,10 +36,20 @@ def network(eval_model, device):
 
 
 if __name__ == "__main__":
-    imgpath = "/root/workspace/SDD-PIQA/assets/demo_imgs/20.jpg"  # [1,2,3....jpg]
+    img_dir = Path("/root/workspace/SDD-PIQA/assets/demo_imgs")
     device = "cpu"  # 'cpu' or 'cuda:x'
     eval_model = "/root/workspace/SDD-PIQA/checkpoints/quality_model/SDD-PIQA_quality_model_best.pth"  # checkpoint
     net = network(eval_model, device)
-    input_data = read_img(imgpath)
-    pred_score = net(input_data).data.cpu().numpy().squeeze()
-    print(f"Quality score = {pred_score}")
+
+    if img_dir.exists():
+        extensions = {".png", ".jpg", ".jpeg", ".bmp"}
+        images = sorted(
+            [p for p in img_dir.iterdir() if p.suffix.lower() in extensions]
+        )
+
+        for imgpath in images:
+            input_data = read_img(imgpath).to(device)
+            pred_score = net(input_data).data.cpu().numpy().squeeze()
+            print(f"Image: {imgpath.name}, Quality score = {pred_score}")
+    else:
+        print(f"Directory not found: {img_dir}")

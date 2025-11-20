@@ -18,10 +18,6 @@ This folder contains utility functions, scripts, and helper classes used through
     *   Scripts for training the palmprint recognition backbone.
     *   用于训练掌纹识别主干网络的脚本。
 
-*   **`visualize/`**:
-    *   Tools for visualizing results or data.
-    *   用于可视化结果或数据的工具。
-
 *   **`dataset_txt.py`**:
     *   Dataset loading utilities for reading image lists and labels.
     *   用于读取图像列表和标签的数据集加载工具。
